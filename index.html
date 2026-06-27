@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love You Mom ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd1ff,#ffc3a0);
+background-size:400% 400%;
+animation:bg 10s infinite ease;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+text-align:center;
+color:white;
+z-index:10;
+padding:20px;
+}
+
+h1{
+font-size:60px;
+text-shadow:0 0 20px red;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px white;}
+to{text-shadow:0 0 30px red;}
+}
+
+#typing{
+font-size:28px;
+margin-top:20px;
+min-height:80px;
+font-weight:bold;
+}
+
+button{
+margin-top:40px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff1493;
+cursor:pointer;
+transition:.3s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff1493;
+color:white;
+box-shadow:0 0 20px white;
+}
+
+.heart{
+position:absolute;
+bottom:-30px;
+font-size:25px;
+animation:float 8s linear infinite;
+color:red;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) scale(0.5);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
+}
+}
+
+#popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+color:#ff1493;
+box-shadow:0 0 30px pink;
+animation:zoom .5s;
+z-index:100;
+}
+
+@keyframes zoom{
+from{
+transform:translate(-50%,-50%) scale(.5);
+}
+to{
+transform:translate(-50%,-50%) scale(1);
+}
+}
+
+#popup h2{
+margin-bottom:15px;
+}
+
+#popup button{
+background:#ff1493;
+color:white;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Love You Mom ❤️</h1>
+
+<div id="typing"></div>
+
+<button onclick="showLove()">Click Here Mom 💖</button>
+
+</div>
+
+<div id="popup">
+<h2>🌸 Dear Mom 🌸</h2>
+
+<p style="font-size:20px;line-height:35px;">
+Thank you for every hug,<br>
+every smile,<br>
+every sacrifice,<br>
+and every prayer.<br><br>
+
+You are my first friend,<br>
+my biggest supporter,<br>
+and my greatest blessing.<br><br>
+
+❤️ I Love You Forever Mom ❤️
+</p>
+
+<button onclick="closeLove()">Close ❤️</button>
+
+</div>
+
+<script>
+
+const text="Mom, you are the most beautiful blessing in my life. Thank you for loving me unconditionally. I promise to always respect you, make you proud, and stand beside you forever. ❤️";
+
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,50);
+}
+}
+
+typing();
+
+function showLove(){
+document.getElementById("popup").style.display="block";
+}
+
+function closeLove(){
+document.getElementById("popup").style.display="none";
+}
+
+function hearts(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*35)+"px";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+
+}
+
+setInterval(hearts,250);
+
+</script>
+
+</body>
+</html>
